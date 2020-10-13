@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         factory(App\Group::class, 3)->create();
 
+        // todo:creamos los tres niveles
         factory(App\Level::class)->create(['name' => 'Oro']);
         factory(App\Level::class)->create(['name' => 'Plata']);
         factory(App\Level::class)->create(['name' => 'Bronce']);
@@ -41,7 +42,7 @@ class DatabaseSeeder extends Seeder
 
             $number_comments = rand(1, 6);
 
-            for ($i=0; $i < $number_comments; $i++) { 
+            for ($i=0; $i < $number_comments; $i++) {
                 $post->comments()->save(factory(App\Comment::class)->make());
             }
 
@@ -54,7 +55,7 @@ class DatabaseSeeder extends Seeder
 
             $number_comments = rand(1, 6);
 
-            for ($i=0; $i < $number_comments; $i++) { 
+            for ($i=0; $i < $number_comments; $i++) {
                 $video->comments()->save(factory(App\Comment::class)->make());
             }
 
@@ -65,7 +66,7 @@ class DatabaseSeeder extends Seeder
     {
         $values = [];
 
-        for ($i=1; $i < $max; $i++) { 
+        for ($i=1; $i < $max; $i++) {
             $values[] = $i;
         }
 

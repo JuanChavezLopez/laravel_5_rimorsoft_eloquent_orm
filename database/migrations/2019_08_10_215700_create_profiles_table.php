@@ -15,7 +15,7 @@ class CreateProfilesTable extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->bigIncrements('id');
-
+            // TODO:LA LLAVE FORANEA DE USUARIO, Y UNSIGNED, QUE ES SOLO NUMEROS POSITIVOS.
             $table->bigInteger('user_id')->unsigned();
 
             $table->string('instagram')->nullable();
@@ -27,6 +27,10 @@ class CreateProfilesTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
+
+            // $table->foreign('user_id')->references('id')->on('users')
+            //     ->onDelete('cascade')
+            //     ->onUpdate('cascade');
         });
     }
 
